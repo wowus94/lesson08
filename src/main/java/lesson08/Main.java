@@ -4,15 +4,8 @@ public class Main {
     public static void main(String[] args) {
 
         Runnable human = new Human("Владимир");
-        human.run(500);
-        human.jump(5);
-
         Runnable cat = new Cat("Персик");
-        cat.run(300);
-        cat.jump(3);
         Runnable robot = new Robot("R2D2");
-        robot.run(1000);
-        robot.jump(10);
 
         Runnable[] member = new Runnable[3];
         member[0] = human;
@@ -55,9 +48,9 @@ class Human implements Runnable {
     public void run(int distance) {
         if (distance <= 500) {
             System.out.printf(name + " пробежал %d метров.\n", distance);
+            System.out.println();
         } else {
-            System.out.printf(name + " не смог пробежать и сошел с дистанции.\n");
-
+            System.out.printf(name + " не смог пробежать %d м. и сошел с дистанции.\n",distance);
         }
     }
 
@@ -65,13 +58,15 @@ class Human implements Runnable {
     public void jump(int height) {
         Runnable.super.jump(height);
         if (height <= 5) {
-            System.out.printf(name + " прыгнул %d метров. \n", height);
-        }else{
-            System.out.print(name + " не смог прыгнуть и сошел с соревнований.");
+            System.out.printf(name + " прыгнул %d метров.\n", height);
+            System.out.println();
+        } else {
+            System.out.printf(name + " не смог прыгнуть %d м. и сошел с соревнований.\n", height);
+
         }
-        System.out.println();
     }
 }
+
 class Cat implements Runnable {
     private String name;
 
@@ -83,19 +78,21 @@ class Cat implements Runnable {
     public void run(int distance) {
         if (distance <= 300) {
             System.out.printf(name + " пробежал %d метров.\n", distance);
+            System.out.println();
         } else {
-            System.out.printf(name + " не смог пробежать и сошел с дистанции.\n");
+            System.out.printf(name + " не смог пробежать %d м. и сошел с дистанции.\n",distance);
         }
     }
+
     @Override
     public void jump(int height) {
         Runnable.super.jump(height);
         if (height <= 3) {
             System.out.printf(name + " прыгнул %d метров. \n", height);
-        }else{
-            System.out.printf(name + " не смог прыгнуть и сошел с соревнований.\n");
+            System.out.println();
+        } else {
+            System.out.printf(name + " не смог прыгнуть %d м. и сошел с соревнований.\n", height);
         }
-        System.out.println();
     }
 }
 
@@ -110,19 +107,20 @@ class Robot implements Runnable {
     public void run(int distance) {
         if (distance <= 1000) {
             System.out.printf(name + " пробежал %d метров.\n", distance);
+            System.out.println();
         } else {
-            System.out.printf(name + " не смог пробежать и сошел с дистанции.\n");
+            System.out.printf(name + " не смог пробежать %d м. и сошел с дистанции.\n",distance);
         }
     }
+
     @Override
     public void jump(int height) {
         Runnable.super.jump(height);
         if (height <= 10) {
             System.out.printf(name + " прыгнул %d метров. \n", height);
-        }else{
-            System.out.printf(name + " не смог прыгнуть и сошел с соревнований.\n");
+        } else {
+            System.out.printf(name + " не смог прыгнуть %d м. и сошел с соревнований.\n", height);
         }
-        System.out.println();
     }
 }
 
